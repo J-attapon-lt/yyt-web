@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yungyuen Technology | ยั่งยืน เทคโนโลยี เซอร์วิส แอนด์ ซัพพลาย</title>
+
+    <meta name="description" content="Yungyuen Technology ให้บริการวางระบบไอทีครบวงจร ทั้ง Network, Security, ERP, Web Development และ IoT สำหรับธุรกิจและอุตสาหกรรม" />
+    <meta name="keywords" content="วางระบบไอที, Network, Security, ERP, Odoo, CCTV, IoT, Web Development, นครศรีธรรมราช" />
+    <meta name="author" content="Yungyuen Technology Service and Supply Co., Ltd." />
+
+    <meta property="og:title" content="Yungyuen Technology" />
+    <meta property="og:description" content="Strategic IT Partner | นวัตกรรมก้าวไกล บริการด้วยใจ เติบโตคู่ธุรกิจคุณอย่างยั่งยืน" />
+    <meta property="og:type" content="website" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+
+        .hero-bg {
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.80), rgba(15, 23, 42, 0.90)),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+            background: rgba(255, 255, 255, 0.98);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navbar -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logo -->
+                <a href="#home" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-12 h-12 bg-primary-900 rounded-lg flex items-center justify-center overflow-hidden border border-primary-800">
+                        <span class="text-xs font-bold text-white text-center leading-tight">YT</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary-900 leading-tight">
+                            Yungyuen <span class="text-secondary-600">Technology</span>
+                        </h1>
+                        <p class="text-xs text-gray-500 hidden sm:block">Service and Supply Co., Ltd.</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary-700 font-medium transition">หน้าแรก</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary-700 font-medium transition">บริการ</a>
+                    <a href="#portfolio" class="text-gray-600 hover:text-primary-700 font-medium transition">ผลงานของเรา</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary-700 font-medium transition">เกี่ยวกับเรา</a>
+                    <a href="#contact" class="bg-primary-900 text-white px-6 py-2 rounded-full font-medium hover:bg-primary-700 transition shadow-lg hover:shadow-xl">
+                        ติดต่อเรา
+                    </a>
+                </div>
+
+                <!-- Mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button
+                        id="menu-button"
+                        aria-label="เปิดเมนู"
+                        class="text-gray-600 hover:text-primary-900 focus:outline-none"
+                    >
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-link block px-3 py-2 text-gray-600 hover:text-primary-900 hover:bg-gray-50 rounded-md font-medium">หน้าแรก</a>
+                <a href="#services" class="mobile-link block px-3 py-2 text-gray-600 hover:text-primary-900 hover:bg-gray-50 rounded-md font-medium">บริการ</a>
+                <a href="#portfolio" class="mobile-link block px-3 py-2 text-gray-600 hover:text-primary-900 hover:bg-gray-50 rounded-md font-medium">ผลงานของเรา</a>
+                <a href="#about" class="mobile-link block px-3 py-2 text-gray-600 hover:text-primary-900 hover:bg-gray-50 rounded-md font-medium">เกี่ยวกับเรา</a>
+                <a href="#contact" class="mobile-link block px-3 py-2 text-primary-900 font-bold hover:bg-gray-50 rounded-md">ติดต่อเรา</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-secondary-500 font-semibold tracking-wider uppercase text-sm md:text-base mb-4 block">
+                    Strategic IT Partner
+                </span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Driven by <span class="text-primary-500">Innovation</span>,<br />
+                    Delivered with <span class="text-primary-500">Care</span>,<br />
+                    Growing Together <span class="text-secondary-500">Sustainably</span>.
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 font-light">
+                    นวัตกรรมก้าวไกล บริการด้วยใจ เติบโตคู่ธุรกิจคุณอย่างยั่งยืน
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="bg-primary-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary-500 transition shadow-lg hover:shadow-primary-500/50">
+                        ดูบริการของเรา <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary-900 transition">
+                        ขอคำปรึกษาฟรี
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">บริการและโซลูชันของเรา</h3>
+                    <div class="w-20 h-1 bg-primary-700 rounded-full mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl">
+                        End-to-End IT Solutions ครบจบในที่เดียว ตอบโจทย์ทุกความต้องการของธุรกิจองค์กรและอุตสาหกรรม
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" alt="Network" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 text-primary-700">
+                            <i class="fa-solid fa-network-wired text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Network & Security</h4>
+                        <p class="text-gray-600 text-sm mb-4">ออกแบบและวางระบบเครือข่ายองค์กร Firewall และ VPN เพื่อความเสถียรและความปลอดภัยสูงสุด</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="ERP" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 text-primary-700">
+                            <i class="fa-solid fa-chart-pie text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">ERP Solutions</h4>
+                        <p class="text-gray-600 text-sm mb-4">วางระบบซอฟต์แวร์บริหารจัดการองค์กร เช่น Odoo เชื่อมโยงข้อมูลทุกแผนกเพื่อการตัดสินใจที่แม่นยำ</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" alt="Web Development" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 text-primary-700">
+                            <i class="fa-solid fa-code text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Web & App Development</h4>
+                        <p class="text-gray-600 text-sm mb-4">พัฒนาเว็บไซต์และเว็บแอปพลิเคชัน ปรับแต่งระบบให้เข้ากับกระบวนการทำงานของแต่ละธุรกิจ</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070&auto=format&fit=crop" alt="IoT and Smart Security" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 text-primary-700">
+                            <i class="fa-solid fa-video text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">IoT & Smart Security</h4>
+                        <p class="text-gray-600 text-sm mb-4">ติดตั้งระบบเซ็นเซอร์อัจฉริยะ และกล้องวงจรปิด IP Camera เพื่อการรักษาความปลอดภัยแบบเรียลไทม์</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="py-12 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest">เทคโนโลยีและพันธมิตรที่ไว้วางใจเรา</h4>
+            </div>
+
+            <div class="flex overflow-x-auto hide-scrollbar gap-8 md:gap-16 items-center justify-start md:justify-center py-4 px-2">
+                <div class="min-w-[120px] opacity-50 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-brands fa-aws text-4xl"></i><span class="font-bold text-xl">AWS</span>
+                </div>
+                <div class="min-w-[120px] opacity-50 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-database text-3xl"></i><span class="font-bold text-xl">Odoo</span>
+                </div>
+                <div class="min-w-[120px] opacity-50 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-shield-halved text-3xl"></i><span class="font-bold text-xl">Fortinet</span>
+                </div>
+                <div class="min-w-[120px] opacity-50 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-brands fa-microsoft text-3xl"></i><span class="font-bold text-xl">Microsoft</span>
+                </div>
+                <div class="min-w-[120px] opacity-50 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-server text-3xl"></i><span class="font-bold text-xl">MikroTik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary-600 font-bold tracking-wider uppercase text-sm mb-2 block">Our Projects</span>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">ผลงานการติดตั้งที่ผ่านมา</h3>
+                <div class="w-20 h-1 bg-primary-700 mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    ส่วนหนึ่งของความสำเร็จที่เราได้ร่วมสร้างและส่งมอบโซลูชันไอทีที่มีประสิทธิภาพสูงสุดให้กับลูกค้าองค์กร
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="Server Installation" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-primary-900 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Network & Server
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-sm text-gray-500 mb-2"><i class="fa-solid fa-building mr-2"></i>อุตสาหกรรมการผลิต</p>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition">ออกแบบและติดตั้งระบบ Server & Network Infrastructure</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">เดินสาย Fiber Optic และติดตั้งตู้ Rack Server พร้อมเซ็ตระบบ Firewall และ VPN เชื่อมต่อระหว่างสาขา เพื่อให้ข้อมูลของโรงงานปลอดภัยและทำงานได้ต่อเนื่อง</p>
+                        <a href="#contact" class="text-secondary-600 font-semibold text-sm hover:text-secondary-800 flex items-center gap-1">
+                            สอบถามบริการนี้ <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="ERP Implementation" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Software / ERP
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-sm text-gray-500 mb-2"><i class="fa-solid fa-store mr-2"></i>ธุรกิจค้าปลีก-ค้าส่ง</p>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition">วางระบบ Odoo ERP จัดการคลังสินค้าและบัญชี</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">ให้คำปรึกษาและ Implement ระบบ ERP เพื่อรวมข้อมูลคลังสินค้า การขาย และบัญชีไว้ในแพลตฟอร์มเดียว ช่วยลดข้อผิดพลาดในการทำงานและเพิ่มประสิทธิภาพการบริหารจัดการ</p>
+                        <a href="#contact" class="text-secondary-600 font-semibold text-sm hover:text-secondary-800 flex items-center gap-1">
+                            สอบถามบริการนี้ <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2065&auto=format&fit=crop" alt="CCTV Installation" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-secondary-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            IoT & Security
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-sm text-gray-500 mb-2"><i class="fa-solid fa-hotel mr-2"></i>ธุรกิจโรงแรมและคลังสินค้า</p>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition">ระบบกล้องวงจรปิดอัจฉริยะครบวงจร</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">ติดตั้งกล้องวงจรปิดความละเอียดสูง ควบคุมผ่านศูนย์กลาง พร้อมระบบตรวจจับความเคลื่อนไหวแจ้งเตือนผ่านมือถือ ตลอด 24 ชั่วโมง</p>
+                        <a href="#contact" class="text-secondary-600 font-semibold text-sm hover:text-secondary-800 flex items-center gap-1">
+                            สอบถามบริการนี้ <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center gap-2 bg-white border-2 border-primary-900 text-primary-900 px-8 py-3 rounded-full font-bold hover:bg-primary-900 hover:text-white transition shadow-sm hover:shadow-lg">
+                    ต้องการดูผลงานเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">ทำไมต้องเลือกเรา</h3>
+                <p class="text-gray-600">ความเชี่ยวชาญที่ช่วยให้ธุรกิจของคุณเดินหน้าได้อย่างมั่นใจ</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-primary-50 text-primary-700 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-briefcase text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3">ตอบโจทย์ธุรกิจจริง</h4>
+                    <p class="text-gray-600">เราออกแบบโซลูชันให้เหมาะกับงานจริง หน้างานจริง และงบประมาณของลูกค้าแต่ละองค์กร</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-primary-50 text-primary-700 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-gears text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3">ดูแลครบวงจร</h4>
+                    <p class="text-gray-600">ตั้งแต่ให้คำปรึกษา จัดหาอุปกรณ์ ติดตั้ง ทดสอบระบบ ไปจนถึงบริการหลังการขาย</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-primary-50 text-primary-700 flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-headset text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3">บริการรวดเร็ว</h4>
+                    <p class="text-gray-600">พร้อมดูแลลูกค้าอย่างใกล้ชิดและช่วยแก้ปัญหาได้อย่างรวดเร็วในพื้นที่และต่างจังหวัด</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-secondary-500/10 rounded-3xl transform -rotate-3"></div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Team" class="relative rounded-2xl shadow-2xl object-cover h-[500px] w-full">
+                    <div class="absolute -bottom-6 -right-6 bg-primary-900 text-white p-6 rounded-2xl shadow-xl hidden md:block">
+                        <div class="text-4xl font-bold mb-1">100%</div>
+                        <div class="text-sm font-light">Commitment to<br>Your Success</div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <span class="text-secondary-600 font-bold tracking-wider uppercase text-sm mb-2 block">About Our Company</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">พันธมิตรทางเทคโนโลยีที่คุณไว้วางใจได้</h3>
+
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        <strong>บริษัท ยั่งยืน เทคโนโลยี เซอร์วิส แอนด์ ซัพพลาย จำกัด</strong>
+                        ก่อตั้งขึ้นด้วยความมุ่งมั่นที่จะเป็น Strategic IT Partner
+                        เราให้บริการด้านเทคโนโลยีสารสนเทศแบบครบวงจร ครอบคลุมตั้งแต่การให้คำปรึกษา
+                        จัดหาอุปกรณ์ วางระบบ ไปจนถึงการพัฒนาซอฟต์แวร์
+                    </p>
+
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        ด้วยทีมงานที่มีความเชี่ยวชาญ เราพร้อมส่งมอบนวัตกรรมที่ทันสมัย ผสานเข้ากับบริการที่รวดเร็วและใส่ใจ
+                        เพื่อช่วยแก้ปัญหาและเพิ่มขีดความสามารถในการแข่งขันให้กับธุรกิจของคุณ
+                        จากฐานการให้บริการในจังหวัดนครศรีธรรมราช เราพร้อมดูแลลูกค้าทั่วภูมิภาค
+                    </p>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-secondary-500 text-xl"></i>
+                            <span class="text-gray-800 font-medium">ทีมงานมืออาชีพ มีประสบการณ์ตรง</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-secondary-500 text-xl"></i>
+                            <span class="text-gray-800 font-medium">สินค้าและซัพพลายคุณภาพสูง จากแบรนด์ชั้นนำ</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-secondary-500 text-xl"></i>
+                            <span class="text-gray-800 font-medium">บริการหลังการขายที่รวดเร็วและพึ่งพาได้</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-primary-900 text-white px-7 py-3 rounded-full font-semibold hover:bg-primary-700 transition">
+                        พูดคุยกับผู้เชี่ยวชาญ <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-primary-900 relative">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+
+                <!-- Contact Info -->
+                <div class="lg:w-2/5 bg-primary-800 text-white p-10 lg:p-12 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2">ติดต่อเรา</h3>
+                        <p class="text-primary-100 mb-10">พร้อมให้คำปรึกษาและประเมินราคาสำหรับโปรเจกต์ของคุณ</p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-location-dot mt-1 text-secondary-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">ที่ตั้งสำนักงาน</h4>
+                                    <p class="text-primary-100 text-sm">
+                                        บริษัท ยั่งยืน เทคโนโลยี เซอร์วิส แอนด์ ซัพพลาย จำกัด<br />
+                                        อ.เมือง จ.นครศรีธรรมราช 80000
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-phone mt-1 text-secondary-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">เบอร์โทรศัพท์</h4>
+                                    <p class="text-primary-100 text-sm">08X-XXX-XXXX</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-envelope mt-1 text-secondary-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">อีเมล</h4>
+                                    <p class="text-primary-100 text-sm">contact@yungyuentech.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:w-3/5 p-10 lg:p-12 bg-gray-50">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">ส่งข้อความถึงเรา</h3>
+
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">ชื่อบริษัท / องค์กร</label>
+                                <input id="company" type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="ระบุชื่อบริษัท" required />
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">เบอร์โทรศัพท์</label>
+                                <input id="phone" type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="08x-xxx-xxxx" required />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="details" class="block text-sm font-medium text-gray-700 mb-2">รายละเอียดโปรเจกต์ที่ต้องการ</label>
+                            <textarea id="details" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition resize-none" placeholder="อธิบายความต้องการหรือปัญหาเบื้องต้น..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary-900 text-white font-bold py-4 rounded-lg hover:bg-primary-800 transition shadow-lg flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> ขอใบเสนอราคา
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-800 rounded flex items-center justify-center overflow-hidden border border-gray-700">
+                        <span class="text-[10px] font-bold text-gray-200 text-center leading-tight">YT</span>
+                    </div>
+                    <span class="text-white font-semibold">Yungyuen Technology Service and Supply</span>
+                </div>
+                <div class="text-sm text-center md:text-right">
+                    &copy; 2026 Yungyuen Technology Service and Supply Co., Ltd. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 20) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact form demo submit
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const company = document.getElementById('company').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const details = document.getElementById('details').value.trim();
+
+            if (!company || !phone || !details) {
+                alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+                return;
+            }
+
+            alert('ขอบคุณสำหรับการติดต่อ ทางบริษัทได้รับข้อมูลของคุณเรียบร้อยแล้ว และจะติดต่อกลับโดยเร็วที่สุด');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
