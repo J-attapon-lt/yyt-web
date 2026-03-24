@@ -478,28 +478,15 @@
                 <!-- Form -->
                 <div class="lg:w-3/5 p-10 lg:p-12 bg-gray-50">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">ส่งข้อความถึงเรา</h3>
-                    
-<!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/xaqprlqg"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-    <label>
-    Your mobile:
-    <input type="mobile" name="mobile">
-    </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-                    
+                    <!-- modify this form HTML and place wherever you want your form -->
+                    <form action="https://formspree.io/f/xaqprlqg"
+                        method="POST" class="space-y-6">
+                        <input name="company" ...>
+                        <input name="phone" ...>
+                        <textarea name="details" ...></textarea>
+                        <button type="submit" class="w-full bg-primary-900 text-white font-bold py-4 rounded-lg hover:bg-primary-800 transition shadow-lg flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> ขอใบเสนอราคา
+                        </button>
                     
                 </div>
             </div>
