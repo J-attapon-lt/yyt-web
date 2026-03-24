@@ -2,20 +2,19 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # ✅ แก้ warning Node 20
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4          # ✅ v4
+      - uses: actions/checkout@v5            # ✅ v5
 
-      - uses: actions/setup-node@v4        # ✅ v4
+      - uses: actions/setup-node@v5          # ✅ v5
         with:
-          node-version: '22'               # ✅ Node 22
+          node-version: '22'
+          cache: 'npm'                       # ✅ cache เพื่อความเร็ว
 
-      - run: npm ci
+      - run: npm install                     # ✅ ใช้ install ถ้ายังไม่มี lock file
       - run: npm run build
-
-      - uses: actions/upload-artifact@v4   # ✅ v4
-        with:
-          name: build-output
-          path: dist/
