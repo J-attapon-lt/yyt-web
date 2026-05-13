@@ -8,13 +8,22 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v5
 
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-          # ❌ ไม่ใส่ cache: 'npm' จนกว่าจะมี package-lock.json
 
-      - run: npm install
-      - run: npm run build
+      - name: Check project files
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -name package.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
