@@ -1,25 +1,16 @@
-name: Deploy static site
+name: CI
 
-on:
-  push:
-    branches: ["main"]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+on: [push, pull_request]
 
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: .
-
-      - uses: actions/deploy-pages@v4
+      - name: Check files
+        run: |
+          pwd
+          ls -la
+          test -f index.html
