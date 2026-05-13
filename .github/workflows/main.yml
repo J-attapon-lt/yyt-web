@@ -1,29 +1,25 @@
-name: CI
+name: Deploy static site
 
-on: [push, pull_request]
+on:
+  push:
+    branches: ["main"]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
         with:
-          node-version: '22'
+          path: .
 
-      - name: Check project files
-        run: |
-          pwd
-          ls -la
-          find . -maxdepth 3 -name package.json
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
+      - uses: actions/deploy-pages@v4
